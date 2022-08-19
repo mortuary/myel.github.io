@@ -4,94 +4,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myel.github.io</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"> 
+    <title>myel</title>
     <style>
-        * {
+        body,
+        html {
+            height: 100%;
             margin: 0;
             padding: 0;
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Helvetica', sans-serif;
+            background: rgb(26, 188, 156);
+            background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
         }
-        body {
-            background-color: #383838;
+
+        h1 {
+            font-size: 24px;
+            margin: 10px 0 0 0;
+            font-weight: lighter;
+            text-transform: uppercase;
+            color: #eeeeee;
         }
-        section {
+
+        p {
+            font-size: 12px;
+            font-weight: light;
+            color: #333333;
+        }
+
+        span a {
+            font-size: 18px;
+            color: #cccccc;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.4s ease-in-out;
+            &:hover {
+                color: #ffffff;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                transform: translatey(0px);
+            }
+            50% {
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+                transform: translatey(-20px);
+            }
+            100% {
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                transform: translatey(0px);
+            }
+        }
+
+        .container {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        h1 {
-            font-size: 80px;
-            color: #4d4d4d;
-            -webkit-text-stroke: 2px #575757;
-            font-weight: 400;
-            position: relative;
-        }
-
-        h1::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #05a9f3;
-            -webkit-text-stroke: 0px #05a9f3;
+        .avatar {
+            width: 150px;
+            height: 150px;
+            box-sizing: border-box;
+            border: 5px white solid;
+            border-radius: 50%;
             overflow: hidden;
-            animation: loading 5s linear;
+            box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+            transform: translatey(0px);
+            animation: float 6s ease-in-out infinite;
+            img { width: 100%; height: auto; }
         }
 
-        @keyframes loading {
-            0% {
-                clip-path: polygon(0 100%, 2% 100%, 18% 100%, 36% 100%, 50% 100%, 62% 100%, 75% 100%, 89% 100%, 98% 100%, 100% 100%);
-            }
+        .content {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-            10% {
-                clip-path: polygon(0 100%, 0 94%, 13% 96%, 26% 96%, 43% 93%, 57% 92%, 70% 89%, 84% 88%, 100% 92%, 100% 100%);
-            }
-
-            20% {
-                clip-path: polygon(0 100%, 0 92%, 9% 85%, 24% 81%, 42% 83%, 56% 85%, 68% 88%, 81% 88%, 100% 82%, 100% 100%);
-            }
-
-            30% {
-                clip-path: polygon(0 100%, 0 72%, 12% 77%, 26% 81%, 43% 80%, 58% 75%, 73% 71%, 86% 68%, 100% 67%, 100% 100%);
-            }
-
-            50% {
-                clip-path: polygon(0 100%, 0 61%, 13% 55%, 27% 52%, 42% 55%, 57% 61%, 74% 65%, 87% 64%, 100% 58%, 100% 100%);
-            }
-
-            60% {
-                clip-path: polygon(0 100%, 0 37%, 9% 43%, 23% 47%, 41% 46%, 60% 43%, 72% 35%, 85% 31%, 100% 30%, 100% 100%);
-            }
-
-            75% {
-                clip-path: polygon(0 100%, 0 18%, 15% 17%, 29% 18%, 43% 24%, 57% 26%, 73% 23%, 87% 19%, 100% 16%, 100% 100%);
-            }
-
-            80% {
-                clip-path: polygon(0 100%, 0 13%, 13% 15%, 27% 13%, 41% 10%, 56% 6%, 72% 7%, 82% 9%, 100% 16%, 100% 100%);
-            }
-
-            90% {
-                clip-path: polygon(0 100%, 0 0, 13% 5%, 28% 6%, 43% 6%, 54% 7%, 70% 9%, 84% 8%, 100% 5%, 100% 100%);
-            }
-
-            100% {
-                clip-path: polygon(0 100%, 0 0, 9% 0, 26% 0, 41% 0, 52% 0, 67% 0, 82% 0, 100% 0, 100% 100%);
+        .suppoprt-me {
+            display: inline-block;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 20vw;
+            max-width: 250px;
+            min-width: 200px;
+            z-index: 9;
+            img {
+                width: 100%;
+                height: auto;
             }
         }
     </style>
 </head>
 <body>
-    <section>
-        <h1 data-text="Myel">Myel</h1>
-    </section>
+<div class="container">
+	<div class="avatar">
+			<img src="https://d1fdloi71mui9q.cloudfront.net/grvvtPJ7TK2qpLGRz2ze_w0Mp635AcUD8nGHs" alt="Skytsunami" />
+	</div>
+	<div class="content">
+		<h1>MYEL</h1>
+		<p>Follow me on:</p>
+		<p>
+			<span><a href="https://github.com/myel" target="_blank"><i class="fa fa-github"></i></a></span>
+			<span><a href="https://linkedin.com/in/myel" target="_blank"><i class="fa fa-linkedin"></i></a></span>
+			<span><a href="https://pinterest.com/myel" target="_blank"><i class="fa fa-pinterest"></i></a></span>
+		</p>
+	</div>
+</div>
+
+<a class="suppoprt-me" href="https://www.buymeacoffee.com/marioduarte" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&nbsp&emoji=&slug=marioduarte&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a>
 </body>
 </html>
